@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> {
@@ -39,6 +40,15 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
     @Override
     public int getItemCount() {
         return posts.size();
+    }
+    public void clear(){
+        posts=new ArrayList<>();
+        posts.clear();
+        notifyDataSetChanged();
+    }
+    public void addAll(List<Post> feed){
+        posts.addAll(feed);
+        notifyDataSetChanged();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
